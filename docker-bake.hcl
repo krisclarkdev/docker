@@ -50,7 +50,7 @@ variable "REGISTRY" {
 }
 
 variable "JENKINS_REPO" {
-  default = "jenkins/jenkins"
+  default = "krisclarkdev/jenkins"
 }
 
 variable "LATEST_WEEKLY" {
