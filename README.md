@@ -1,4 +1,4 @@
-# Official Jenkins Docker image
+# Unoffical build of official Jenkins Docker image for arm64
 
 [![Docker Stars](https://img.shields.io/docker/stars/jenkins/jenkins.svg)](https://hub.docker.com/r/jenkins/jenkins/)
 [![Docker Pulls](https://img.shields.io/docker/pulls/jenkins/jenkins.svg)](https://hub.docker.com/r/jenkins/jenkins/)
@@ -12,6 +12,22 @@ This is a fully functional Jenkins server.
 <img src="https://jenkins.io/sites/default/files/jenkins_logo.png"/>
 
 # Usage
+
+You can either import my prebuilt image
+
+```
+docker pull krisclarkdev/jenkins
+```
+
+Or build it yourself
+
+```
+git clone https://github.com/krisclarkdev/docker.git
+cd docker
+vi docker-bake.hcl
+# Edit line 53 to match your docker repo
+make build
+```
 
 ```
 docker run -p 8080:8080 -p 50000:50000 --restart always jenkins/jenkins:lts-jdk11
