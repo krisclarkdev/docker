@@ -113,10 +113,10 @@ RUN mkdir -p ${REF}/init.groovy.d
 
 # jenkins version being bundled in this docker image
 ARG JENKINS_VERSION
-ENV JENKINS_VERSION ${JENKINS_VERSION:-2.303}
+ENV JENKINS_VERSION ${JENKINS_VERSION:-2.345}
 
 # jenkins.war checksum, download will be validated using it
-ARG JENKINS_SHA=4dfe49cd7422ec4317a7c7a7c083f40fa475a58a7747bd94187b2cf222006ac0
+ARG JENKINS_SHA=e06a4289afe2877d024e49bf72b53494b912eb2c4f931e00254b5b1dd9fee447
 
 # Can be used to customize where jenkins.war get downloaded from
 ARG JENKINS_URL=https://repo.jenkins-ci.org/public/org/jenkins-ci/main/jenkins-war/${JENKINS_VERSION}/jenkins-war-${JENKINS_VERSION}.war
@@ -131,7 +131,7 @@ ENV JENKINS_UC_EXPERIMENTAL=https://updates.jenkins.io/experimental
 ENV JENKINS_INCREMENTALS_REPO_MIRROR=https://repo.jenkins-ci.org/incrementals
 RUN chown -R ${user} "$JENKINS_HOME" "$REF"
 
-ARG PLUGIN_CLI_VERSION=2.9.3
+ARG PLUGIN_CLI_VERSION=2.12.3
 ARG PLUGIN_CLI_URL=https://github.com/jenkinsci/plugin-installation-manager-tool/releases/download/${PLUGIN_CLI_VERSION}/jenkins-plugin-manager-${PLUGIN_CLI_VERSION}.jar
 RUN curl -fsSL ${PLUGIN_CLI_URL} -o /opt/jenkins-plugin-manager.jar
 

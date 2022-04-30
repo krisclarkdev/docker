@@ -1,4 +1,4 @@
-# Official Jenkins Docker image
+# Unoffical build of official Jenkins Docker image for arm64
 
 [![Docker Stars](https://img.shields.io/docker/stars/jenkins/jenkins.svg)](https://hub.docker.com/r/jenkins/jenkins/)
 [![Docker Pulls](https://img.shields.io/docker/pulls/jenkins/jenkins.svg)](https://hub.docker.com/r/jenkins/jenkins/)
@@ -11,7 +11,39 @@ This is a fully functional Jenkins server.
 
 <img src="https://jenkins.io/sites/default/files/jenkins_logo.png"/>
 
+# Kubernetes
+
+```
+curl https://raw.githubusercontent.com/krisclarkdev/docker/master/k8s/jenkins-arm64 -o jenkins-arm64.yaml
+vi jenkins-arm64.yaml
+# Change line 12 to your storage class
+kubectl create -f ./jenkins-arm64.yaml
+kubectl get pods -n jenkins
+# Get admin password
+kubectl logs PODNAME -n jenkins
+# Get jenkins IP
+kubectl get services -n jenkins
+```
+
+Copy the auto generated admin password and then use the service IP in your browser to continue
+
 # Usage
+
+You can either import my prebuilt image
+
+```
+docker pull krisclarkdev/jenkins
+```
+
+Or build it yourself
+
+```
+git clone https://github.com/krisclarkdev/docker.git
+cd docker
+vi docker-bake.hcl
+# Edit line 53 to match your docker repo
+make build
+```
 
 ```
 docker run -p 8080:8080 -p 50000:50000 --restart always jenkins/jenkins:lts-jdk11
@@ -294,3 +326,4 @@ If you wish to contribute fixes to this repository, please refer to the [dedicat
 ## Questions?
 
 We're on Gitter, https://gitter.im/jenkinsci/docker
+

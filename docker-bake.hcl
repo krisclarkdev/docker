@@ -38,11 +38,12 @@ group "linux-ppc64le" {
 # ---- variables ----
 
 variable "JENKINS_VERSION" {
-  default = "2.303"
+  default = "2.345"
 }
 
 variable "JENKINS_SHA" {
-  default = "4dfe49cd7422ec4317a7c7a7c083f40fa475a58a7747bd94187b2cf222006ac0"
+  #default = "4dfe49cd7422ec4317a7c7a7c083f40fa475a58a7747bd94187b2cf222006ac0"
+  default = "e06a4289afe2877d024e49bf72b53494b912eb2c4f931e00254b5b1dd9fee447"
 }
 
 variable "REGISTRY" {
@@ -50,7 +51,7 @@ variable "REGISTRY" {
 }
 
 variable "JENKINS_REPO" {
-  default = "jenkins/jenkins"
+  default = "krisclarkdev/jenkins"
 }
 
 variable "LATEST_WEEKLY" {
